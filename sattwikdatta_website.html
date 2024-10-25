@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sattwik Datta - Portfolio</title>
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap');
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Fonts */
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #ffffff;
+            background: #1a1a1a; /* Dark background for a modern look */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Welcome Page Styling */
+        .welcome-page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(135deg, #0d0d0d, #1c1c1c, #333);
+            color: #ffffff;
+            text-align: center;
+            position: relative; /* For the background image */
+        }
+
+        .welcome-page h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: slideIn 2s ease;
+        }
+
+        .welcome-page p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeIn 3s ease;
+        }
+
+        /* Text Animations */
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.5s;
+            animation: fadeIn 2s ease;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 45px;
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            line-height: 1.8;
+            position: relative;
+            animation: slideUp 2s ease forwards;
+        }
+
+        .section h2 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: fadeInText 2s ease;
+        }
+
+        /* Section Animations */
+        @keyframes slideUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            0% { color: transparent; }
+            100% { color: #ffffff; }
+        }
+
+        .section p, .section ul {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 500;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .section ul li {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #ffffff;
+            font-weight: 600;
+            position: relative;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease; /* Adding scale effect on hover */
+        }
+
+        .section ul li:hover {
+            transform: scale(1.03); /* Slightly enlarge on hover */
+        }
+
+        .section ul li::before {
+            content: '🌟';
+            color: #ff7eb9;
+            font-size: 1.4rem;
+            margin-right: 8px;
+            transform: rotate(-20deg);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto; /* Center the form */
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            animation: fadeInSection 2s ease forwards; /* Animation for the whole section */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            background: rgba(255, 255, 255, 0.15); /* Light background for input */
+            color: #ffffff;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.25); /* Highlight on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        .send-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            background: #007bff; /* Modern button color */
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease; /* Add transform for hover effect */
+        }
+
+        .send-btn:hover {
+            background: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-page h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 30px 15px;
+            }
+
+            .contact-form {
+                padding: 15px;
+            }
+
+            .send-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Page -->
+    <div class="welcome-page">
+        <h1>Sattwik Datta</h1>
+        <div class="profile-img">
+        <img src="file:///C:/Users/SATTWIK/Downloads/Untitled-removebg-preview.png" alt="Sattwik Datta" style="width: 200px; border-radius: 100%;">
+            <!-- Add your image here later -->
+        </div>
+        <p>Welcome! I’m <span class="highlight">Sattwik Datta</span>, a passionate learner and tech enthusiast, specializing in Computer Science with a focus on Artificial Intelligence and Machine Learning. Dive into my world of coding, innovation, and achievements.</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="#hobbies">Hobbies</a>
+    </nav>
+
+    <!-- About Me Section -->
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>I am currently pursuing a degree in Computer Science at the Institute of Engineering and Management, Newtown, specializing in Artificial Intelligence and Machine Learning. With a strong foundation in programming languages like Python, Java, and HTML, I am dedicated to continuous learning and growth.</p>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>Completed 10th and 12th grades from Ram Mohan Mission High School.</li>
+            <li>Currently studying CSE with AIML at the Institute of Engineering and Management, Newtown.</li>
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <h2>Experience</h2>
+        <ul>
+            <li>Participated in online hackathons and coding competitions.</li>
+            <li>Created a poster on CRISPR Cas9 for a competition.</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>Developed a portfolio website to showcase my skills and projects.</li>
+            <li>Worked on various coding projects, including web development and algorithms.</li>
+        </ul>
+    </section>
+    <section class="section" id="hobbies">
+        <h2>Hobbies</h2>
+        <ul>
+            <li>Sports</li>
+            <li>Cooking</li>
+            <li>Photography</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2>Contact Me</h2>
+        <form action="mailto:sattwikdatta.6@gmail.com" method="post" enctype="text/plain" class="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="send-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sattwik Datta. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        const navLinks = document.querySelectorAll('nav a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+
+                // Highlight section
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.style.transition = 'background 0.5s ease';
+                    section.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                });
+                target.style.backgroundColor = 'rgba(255, 255, 255, 0.25)'; // Highlight target section
+                setTimeout(() => {
+                    target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'; // Reset background
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
